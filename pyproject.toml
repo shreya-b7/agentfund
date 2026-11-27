@@ -1,0 +1,31 @@
+[project]
+name = "agentfund"
+version = "0.1.0"
+description = "A multi-agent mini asset manager with a point-in-time, leakage-tested quant core."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.26",
+  "pandas>=2.1",
+  "duckdb>=1.0",
+  "pydantic>=2.6",
+  "anthropic>=2.12",
+  "httpx>=0.27",
+  "yfinance>=0.2.50",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+agentfund = "agentfund.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["agentfund*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
